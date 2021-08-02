@@ -1,6 +1,17 @@
 version: '3.7'
 
 services:
+  db:
+    build: ./backend/.docker/postgres/
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=dsvendas
+      - POSTGRES_PASSWORD=dsvendas
+      - POSTGRES_DB=dsvendas
+
   web:
     build: ./frontend/
     ports:
