@@ -12,6 +12,17 @@ services:
       - POSTGRES_PASSWORD=dsvendas
       - POSTGRES_DB=dsvendas
 
+  pgadmin:
+    image: dpage/pgadmin4
+    tty: true
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@user.com
+      - PGADMIN_DEFAULT_PASSWORD=123456
+    ports:
+      - 9000:80
+    depends_on:
+      - db
+
   web:
     build: ./frontend/
     ports:
