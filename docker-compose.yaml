@@ -23,6 +23,16 @@ services:
     depends_on:
       - db
 
+  app:
+    build: ./backend/
+    ports:
+      - 8080:8080
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/target
+    depends_on:
+      - db
+
   web:
     build: ./frontend/
     ports:
