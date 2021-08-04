@@ -21,15 +21,21 @@ Para deploy:
 
 ## Executar aplicação localmente
 
-Para subir os contêineres:
+Para instalar as dependências do frontend localmente:
 ```bash
-docker-compose up
+docker-compose run --rm web yarn install
 ```
 
 Para popular o PostgreSQL com os dados fakes:
 ```bash
 docker-compose exec db psql -d dsvendas -U dsvendas -a -q -f data.sql 
 ```
+
+Para subir os contêineres:
+```bash
+docker-compose up
+```
+
 
 ## Modelo conceitual
 
